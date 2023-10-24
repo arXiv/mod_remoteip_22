@@ -261,7 +261,7 @@ static int remoteip_modify_request(request_rec *r)
     }
     remote = apr_pstrdup(r->pool, remote);
 
-    temp_sa = c->remote_addr;
+    temp_sa = r->useragent_addr ? r->useragent_addr : c->remote_addr;
 
     while (remote) {
 
